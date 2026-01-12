@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>王鹏宇｜全栈开发（Next.js + Supabase）简历</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    @page {
+      size: A4;
+      margin: 0;
+    }
+    body {
+      background-color: #f3f4f6;
+      -webkit-print-color-adjust: exact;
+    }
+    .a4-page {
+      width: 210mm;
+      min-height: 297mm;
+      background: white;
+      margin: 20px auto;
+      padding: 20mm;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      color: #333;
+      line-height: 1.5;
+      font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+      position: relative;
+    }
+
+    /* 打印优化 */
+    @media print {
+      body { background: white; }
+      .a4-page {
+        margin: 0;
+        box-shadow: none;
+        width: 100%;
+        height: auto;
+        padding: 15mm; /* 打印时稍微减小边距 */
+      }
+      .no-print { display: none !important; }
+    }
+
+    /* 标题样式 */
+    h1 { margin-bottom: 0.25rem; }
+    h2.section-title {
+      display: flex;
+      align-items: center;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #1e293b;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 0.5rem;
+      margin-top: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    h2.section-title i {
+      margin-right: 0.75rem;
+      color: #2563eb; /* 蓝色图标 */
+      font-size: 1rem;
+    }
+
+    /* 时间轴样式 (工作经历) */
+    .timeline-container {
+      position: relative;
+      padding-left: 1.5rem;
+      border-left: 2px solid #e2e8f0;
+      margin-left: 0.5rem;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-dot {
+      position: absolute;
+      left: -1.9rem;
+      top: 0.35rem;
+      width: 0.7rem;
+      height: 0.7rem;
+      background-color: white;
+      border: 3px solid #3b82f6;
+      border-radius: 50%;
+    }
+
+    /* 项目卡片样式 (Project Card) */
+    .project-card {
+      background-color: #ffffff;
+      border-left: 4px solid #3b82f6; /* 蓝色左边框 */
+      padding: 0.75rem 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      border-radius: 0 4px 4px 0;
+    }
+    .tech-tag {
+      display: inline-block;
+      background: #eff6ff;
+      color: #1d4ed8;
+      font-size: 0.7rem;
+      padding: 1px 6px;
+      border-radius: 4px;
+      margin-right: 4px;
+      margin-bottom: 2px;
+      font-weight: 500;
+    }
+
+    /* 列表微调 */
+    ul { list-style-type: disc; padding-left: 1.2rem; margin-bottom: 0; }
+    li { margin-bottom: 3px; }
+
+    /* 工具栏 */
+    .toolbar {
+      position: fixed; top: 20px; right: 20px; display: flex; gap: 10px; z-index: 100;
+    }
+    .btn {
+      background: #2563eb; color: white; padding: 10px 20px; border-radius: 6px;
+      font-weight: 500; cursor: pointer; border: none; display: flex; align-items: center; gap: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      transition: all 0.2s;
+    }
+    .btn:hover { background: #1d4ed8; transform: translateY(-1px); }
+    .btn-green { background: #16a34a; }
+    .btn-green:hover { background: #15803d; }
+  </style>
+</head>
+<body>
+
+
+<!-- A4 纸张区域 -->
+<div id="resume-content" class="a4-page">
+
+  <!-- 头部 Header -->
+  <div class="text-center mb-6 pb-4 border-b border-gray-100">
+    <h1 class="text-4xl font-bold tracking-tight text-gray-900 mb-2">王 鹏 宇</h1>
+
+    <div class="text-sm text-gray-600 flex justify-center gap-6 items-center flex-wrap">
+      <span class="flex items-center"><i class="fas fa-phone-alt mr-2 text-blue-500"></i>133-3813-9374</span>
+      <span class="flex items-center"><i class="fas fa-envelope mr-2 text-blue-500"></i>wangpengyuyz@gmail.com</span>
+      <span class="flex items-center"><i class="fas fa-map-marker-alt mr-2 text-blue-500"></i>江苏/上海</span>
+    </div>
+  </div>
+
+  <!-- 个人总结 Summary -->
+  <section class="mb-5 bg-slate-50 p-4 rounded border border-slate-100">
+    <h2 class="text-base font-bold text-gray-800 mb-2 flex items-center">
+      <i class="fas fa-user-tie mr-2 text-blue-600"></i> 个人亮点
+    </h2>
+    <div class="text-sm text-gray-700 leading-relaxed text-justify">
+      <ul class="pl-4">
+        <li><strong>全栈交付：</strong>具备从0到1搭建并上线 Web 应用的能力（Next.js 14 + TypeScript + Supabase + Vercel），可独立完成前后端联调、部署与迭代。</li>
+        <li><strong>架构与安全：</strong>熟悉 Serverless/Edge、RLS 行级权限与 JWT 鉴权，能在权限边界清晰的前提下落地核心业务流程。</li>
+        <li><strong>工程化能力：</strong>实践事件驱动（Postgres Outbox）、统一 API 合约、自动化测试与 CI/CD（GitHub Actions + Vercel + Supabase CLI），提升系统可维护性与交付稳定性。</li>
+        <li><strong>业务与产品意识：</strong>能围绕用户旅程拆分模块并快速交付（Booking/Loyalty/Lounge、LBS+推荐、后台RBAC），同时关注体验与性能（索引、分页、缓存）。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 工作经历 Work Experience (Timeline) -->
+  <section class="mb-5">
+    <h2 class="section-title">
+      <i class="fas fa-briefcase"></i> 实习经历
+    </h2>
+
+    <div class="timeline-container">
+      <!-- 工作 1 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="flex justify-between items-baseline mb-1">
+          <h3 class="text-lg font-bold text-gray-900">靈澈人工智能有限公司</h3>
+          <span class="text-sm font-semibold text-blue-600 bg-blue-50 px-2 py-0.5 rounded">2025.08 - 至今</span>
+        </div>
+        <div class="text-gray-700 font-medium mb-2 italic">全栈开发</div>
+        <div class="text-sm text-gray-600 text-justify">
+          <ul>
+            <li><strong>全栈交付：</strong>围绕 ScoreMystery（Next.js 14 + Supabase）持续迭代核心功能，负责页面开发、接口联调与线上发布回归。</li>
+            <li><strong>接口与数据：</strong>基于 Supabase Edge Functions 与 Postgres（Auth/RLS）实现/维护用户鉴权与数据接口，处理 CORS、错误兜底与日志追踪，保障数据一致性。</li>
+            <li><strong>媒体与性能：</strong>落地媒体上传与处理链路（Storage/构建期处理），配合 Vercel 部署与缓存策略优化首屏与接口响应体验。</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 工作 2 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="flex justify-between items-baseline mb-1">
+          <h3 class="text-lg font-bold text-gray-900">苏州韵语信息技术有限公司</h3>
+          <span class="text-sm font-semibold text-gray-500">2024.11 - 2025.02</span>
+        </div>
+        <div class="text-gray-700 font-medium mb-2 italic">全栈开发</div>
+        <div class="text-sm text-gray-600 text-justify">
+          <ul>
+            <li><strong>技术学习：</strong>在真实项目环境中系统学习前后端开发流程与工程规范，熟悉从需求理解→任务拆分→联调回归的完整迭代节奏。</li>
+            <li><strong>实践与验证：</strong>在导师指导下完成页面与接口对接练习（列表/详情/表单），使用 Postman/浏览器调试验证接口行为与边界状态。</li>
+            <li><strong>沉淀总结：</strong>整理学习笔记与接口约定/字段说明，复盘常见问题（权限、参数校验、错误码），为后续独立交付打基础。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 项目经历 Projects (Card Style) -->
+  <section class="mb-5">
+    <h2 class="section-title">
+      <i class="fas fa-project-diagram"></i> 重点项目经历
+    </h2>
+
+    <div class="grid grid-cols-1 gap-3">
+
+      <!-- 项目 1 -->
+      <div class="project-card" style="border-left-color: #10b981;">
+        <div class="flex justify-between items-start mb-1">
+          <div>
+            <span class="font-bold text-gray-900 block">https://www.scoremystery.com</span>
+            <div class="mt-1">
+              <span class="tech-tag">Edge Function</span>
+              <span class="tech-tag">SSR</span>
+              <span class="tech-tag">Supabase Auth + Postgres</span>
+              <span class="tech-tag">媒体处理</span>
+              <span class="tech-tag">App Router</span>
+              <span class="tech-tag">Vercel</span>
+
+
+            </div>
+          </div>
+          <span class="text-xs text-gray-500 font-mono">2025.09 - 至今</span>
+        </div>
+        <ul class="text-sm text-gray-700 text-justify mt-2">
+          <li><strong>挑战：</strong>从零搭建环境，需要在 Serverless + Edge 架构下实现用户系统与数据接口，并保证在高并发访问下的稳定性与响应速度</li>
+          <li><strong>行动：</strong>学习，设计并实现基于 Next.js + Supabase 的全栈架构，完成用户鉴权、数据接口、媒体处理与前后端解耦，并部署至 Vercel Edge Runtime</li>
+          <li><strong>结果：</strong>网站于2025.11成功开发完成雏形，并成功上线</li>
+          <li><strong>技术架构：</strong>构建了基于 Next.js 14 App Router 的全栈 Web 应用，采用 SSR + Edge Functions + BaaS（Supabase） 架构，实现用户系统、数据接口、媒体处理与高并发访问的生产级部署。</li>
+        </ul>
+      </div>
+
+      <!-- 项目 2 -->
+      <div class="project-card" style="border-left-color: #f59e0b;">
+        <div class="flex justify-between items-start mb-1">
+          <div>
+            <span class="font-bold text-gray-900 block">地方特色美食推荐与餐饮点评微信小程序（LBS + 混合推荐）</span>
+            <div class="mt-1">
+              <span class="tech-tag">微信小程序</span>
+              <span class="tech-tag">Spring Boot 3</span>
+              <span class="tech-tag">MySQL</span>
+              <span class="tech-tag">JWT</span>
+              <span class="tech-tag">贝叶斯评分</span>
+              <span class="tech-tag">LBS</span>
+            </div>
+          </div>
+          <span class="text-xs text-gray-500 font-mono">2025.12 - 至今</span>
+        </div>
+        <ul class="text-sm text-gray-700 text-justify mt-2">
+          <li><strong>项目概述：</strong>构建微信小程序美食推荐与餐饮点评系统，采用前后端分离架构（小程序 + Spring Boot + MySQL），支持地图找店、推荐流与图文点评。</li>
+          <li><strong>LBS与地图：</strong>基于 wx.getLocation 与腾讯地图 API 实现附近店铺可视化、距离排序与一键导航。</li>
+          <li><strong>推荐算法：</strong>在服务层实现贝叶斯平均修正评分，融合距离衰减与标签匹配生成 Top-N 个性化推荐。</li>
+          <li><strong>安全与性能：</strong>使用 JWT 保护点评接口，接入微信内容安全 API，并对关键字段建立索引优化查询。</li>
+        </ul>
+      </div>
+
+      <!-- 项目 3 -->
+      <div class="project-card">
+        <div class="flex justify-between items-start mb-1">
+          <div>
+            <span class="font-bold text-gray-900 block">航空预定一体化系统开发（Booking+Loyalty+Lounge）</span>
+            <div class="mt-1">
+              <span class="tech-tag">Next.js 14</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">Tailwind CSS</span>
+              <span class="tech-tag">Ant Design</span>
+              <span class="tech-tag">Supabase Auth</span>
+              <span class="tech-tag">Postgres</span>
+              <span class="tech-tag">RLS</span>
+              <span class="tech-tag">Edge Functions</span>
+              <span class="tech-tag">Realtime</span>
+              <span class="tech-tag">Outbox</span>
+              <span class="tech-tag">CI/CD</span>
+              <span class="tech-tag">Vercel</span>
+            </div>
+          </div>
+          <span class="text-xs text-gray-500 font-mono">2024.03 - 2025.04</span>
+        </div>
+        <ul class="text-sm text-gray-700 text-justify mt-2">
+          <li><strong>挑战：</strong>在 Serverless 架构下打通 Booking / Loyalty / Lounge 三模块，兼顾权限安全、跨模块一致性与可扩展性。</li>
+          <li><strong>行动：</strong>基于 Next.js App Router + Supabase（Auth/Postgres/RLS/Edge Functions）实现核心接口；采用 Postgres Outbox + `events-dispatcher` 异步处理积分与等级更新，降低耦合。</li>
+          <li><strong>结果：</strong>完成航班搜索→预订→积分累积/兑换→贵宾室预订闭环，支持取消预订规则与 Realtime 状态同步。</li>
+          <li><strong>工程化：</strong>统一 API 响应格式（`_shared/response.ts`），补齐自动化测试脚本与 CI/CD（GitHub Actions + Vercel + Supabase CLI）。</li>
+        </ul>
+      </div>
+
+      <!-- 项目 4 -->
+      <div class="project-card" style="border-left-color: #8b5cf6;">
+        <div class="flex justify-between items-start mb-1">
+          <div>
+            <span class="font-bold text-gray-900 block">基于ruoyi-vue框架开发管理系统</span>
+            <div class="mt-1">
+              <span class="tech-tag">RuoYi-Vue</span>
+              <span class="tech-tag">Vue</span>
+              <span class="tech-tag">Spring Boot</span>
+              <span class="tech-tag">MyBatis</span>
+              <span class="tech-tag">RBAC</span>
+              <span class="tech-tag">JWT</span>
+              <span class="tech-tag">MySQL</span>
+              <span class="tech-tag">Redis</span>
+            </div>
+          </div>
+          <span class="text-xs text-gray-500 font-mono">2023.08 - 2024.01</span>
+        </div>
+        <ul class="text-sm text-gray-700 text-justify mt-2">
+          <li><strong>挑战：</strong>在通用后台框架上快速落地多业务模块，同时保证权限边界清晰、接口安全与可维护性。</li>
+          <li><strong>行动：</strong>基于 RuoYi-Vue 搭建管理端，落地 RBAC（用户-角色-菜单/接口）权限模型；结合 JWT 完成登录鉴权与接口访问控制，并按统一 CRUD 规范交付模块（分页、检索、导入导出、审计）。</li>
+          <li><strong>结果：</strong>实现可复用的后台管理能力与多模块快速迭代交付，提升权限配置效率与日常运维可用性。</li>
+          <li><strong>工程化：</strong>对高频查询字段建立索引并引入 Redis 缓存热点数据，优化列表查询与响应速度。</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 教育与证书 -->
+  <section>
+    <h2 class="section-title">
+      <i class="fas fa-graduation-cap"></i> 教育与证书
+    </h2>
+    <div class="flex justify-between text-sm mb-2 border-b border-dashed border-gray-200 pb-2">
+      <div>
+        <span class="font-bold text-base text-gray-900">澳大利亚卧龙岗大学</span>
+        <span class="mx-2 text-gray-400">|</span>
+        <span>信息技术</span>
+      </div>
+      <div class="font-mono text-gray-600">2024 - 2026</div>
+    </div>
+    <div class="text-sm text-gray-700">
+      <span class="font-bold mr-2">求职优势：</span>
+      <ul class="pl-4 mt-2">
+        <li><strong>语言能力：</strong>雅思7分，海外求学经历，具备基本的英语沟通，阅读，写作能力。</li>
+        <li><strong>全栈交付：</strong>具备从0到1搭建并上线 Web 应用的能力（Next.js + Supabase + Vercel），可独立完成前后端联调与部署。</li>
+        <li><strong>架构与工程化：</strong>熟悉 Serverless/Edge、事件驱动（Outbox）、RLS 权限模型与 CI/CD 流水线，能把项目做成“可维护、可扩展、可上线”。</li>
+        <li><strong>业务理解：</strong>能围绕用户旅程拆分模块并落地关键规则（预订/取消/积分/权益），输出可验证的结果。</li>
+        <li><strong>协作沟通：</strong>有跨角色协作经验，能用清晰的文档/接口约定推进研发闭环。</li>
+        <li><strong>学习能力：</strong>有自主学习能力，能在不熟悉的技术领域内迅速学习并使用。</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+
+
+</body>
+</html>
