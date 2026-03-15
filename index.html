@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>王鹏宇｜全栈开发（Next.js + Supabase）简历</title>
+  <title>Pengyu Wang | Full Stack Developer Resume</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <style>
@@ -19,13 +19,16 @@
       width: 210mm;
       min-height: 297mm;
       background: white;
-      margin: 20px auto;
-      padding: 20mm;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      color: #333;
-      line-height: 1.5;
-      font-family: "Microsoft YaHei", "Segoe UI", Arial, sans-serif;
+      margin: 12px auto;
+      padding: 12mm 13mm;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+      color: #111827;
+      line-height: 1.28;
+      font-family: "Segoe UI", Arial, sans-serif;
       position: relative;
+    }
+    .a4-page:last-of-type {
+      margin-bottom: 12px;
     }
 
     /* 打印优化 */
@@ -36,7 +39,13 @@
         box-shadow: none;
         width: 100%;
         height: auto;
-        padding: 15mm; /* 打印时稍微减小边距 */
+        padding: 9mm 10mm;
+        page-break-after: always;
+        break-after: page;
+      }
+      .a4-page:last-of-type {
+        page-break-after: auto;
+        break-after: auto;
       }
       .no-print { display: none !important; }
     }
@@ -44,69 +53,79 @@
     /* 标题样式 */
     h1 { margin-bottom: 0.25rem; }
     h2.section-title {
-      display: flex;
-      align-items: center;
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: #1e293b;
-      border-bottom: 2px solid #e2e8f0;
-      padding-bottom: 0.5rem;
-      margin-top: 1.5rem;
-      margin-bottom: 1.25rem;
-    }
-    h2.section-title i {
-      margin-right: 0.75rem;
-      color: #2563eb; /* 蓝色图标 */
+      display: block;
       font-size: 1rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      border-bottom: 2px solid #dbeafe;
+      padding-bottom: 0.2rem;
+      margin-top: 0.6rem;
+      margin-bottom: 0.35rem;
     }
 
     /* 时间轴样式 (工作经历) */
     .timeline-container {
-      position: relative;
-      padding-left: 1.5rem;
-      border-left: 2px solid #e2e8f0;
-      margin-left: 0.5rem;
+      position: static;
+      padding-left: 0;
+      border-left: 0;
+      margin-left: 0;
     }
     .timeline-item {
       position: relative;
-      margin-bottom: 1.5rem;
+      margin-bottom: 0.5rem;
     }
     .timeline-item:last-child { margin-bottom: 0; }
     .timeline-dot {
-      position: absolute;
-      left: -1.9rem;
-      top: 0.35rem;
-      width: 0.7rem;
-      height: 0.7rem;
-      background-color: white;
-      border: 3px solid #3b82f6;
-      border-radius: 50%;
+      display: none;
     }
 
     /* 项目卡片样式 (Project Card) */
     .project-card {
-      background-color: #ffffff;
-      border-left: 4px solid #3b82f6; /* 蓝色左边框 */
-      padding: 0.75rem 1rem;
-      margin-bottom: 1rem;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-      border-radius: 0 4px 4px 0;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+      border-left: 3px solid #3b82f6;
+      padding: 0.38rem 0.55rem;
+      margin-bottom: 0.3rem;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+      border-radius: 0 6px 6px 0;
+      border-bottom: 0;
+      break-inside: avoid;
     }
     .tech-tag {
       display: inline-block;
       background: #eff6ff;
       color: #1d4ed8;
-      font-size: 0.7rem;
-      padding: 1px 6px;
-      border-radius: 4px;
+      font-size: 0.58rem;
+      padding: 1px 4px;
+      border-radius: 999px;
       margin-right: 4px;
-      margin-bottom: 2px;
-      font-weight: 500;
+      margin-bottom: 1px;
+      font-weight: 600;
     }
 
     /* 列表微调 */
     ul { list-style-type: disc; padding-left: 1.2rem; margin-bottom: 0; }
-    li { margin-bottom: 3px; }
+    li { margin-bottom: 0; }
+
+    .photo-slot {
+      width: 76px;
+      height: 100px;
+      border: 1px solid #bfdbfe;
+      border-radius: 8px;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+    }
+    .photo-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
 
     /* 工具栏 */
     .toolbar {
@@ -130,51 +149,61 @@
 <div id="resume-content" class="a4-page">
 
   <!-- 头部 Header -->
-  <div class="text-center mb-6 pb-4 border-b border-gray-100">
-    <h1 class="text-4xl font-bold tracking-tight text-gray-900 mb-2">王 鹏 宇</h1>
+  <div class="mb-1.5 pb-1.5 border-b border-blue-100">
+    <div class="relative min-h-[100px]">
+      <div class="text-center">
+        <h1 class="text-3xl font-bold tracking-tight text-gray-900 mb-0.5">Pengyu Wang</h1>
+        <div class="text-sm font-semibold text-blue-700 mb-0.5">Full Stack Developer</div>
+        <div class="text-[11px] uppercase tracking-wide text-gray-500 mb-1">Next.js / TypeScript / Supabase / Cloud Architecture</div>
 
-    <div class="text-sm text-gray-600 flex justify-center gap-6 items-center flex-wrap">
-      <span class="flex items-center"><i class="fas fa-phone-alt mr-2 text-blue-500"></i>133-3813-9374</span>
-      <span class="flex items-center"><i class="fas fa-envelope mr-2 text-blue-500"></i>wangpengyuyz@gmail.com</span>
-      <span class="flex items-center"><i class="fas fa-map-marker-alt mr-2 text-blue-500"></i>江苏/上海</span>
+        <div class="text-[10px] text-gray-600 flex justify-center gap-2.5 items-center flex-wrap">
+          <span>phone: 133-3813-9374</span>
+          <span>email: wangpengyuyz@gmail.com</span>
+          <span>Jiangsu / Shanghai, China</span>
+          <span><a class="text-blue-600 hover:underline" href="https://github.com/PW970" target="_blank" rel="noreferrer">github.com/PW970</a></span>
+        </div>
+      </div>
+      <div class="photo-slot absolute top-0 right-0">
+        <img src="photo.png" alt="Pengyu Wang photo">
+      </div>
     </div>
   </div>
 
   <!-- 个人总结 Summary -->
-  <section class="mb-5 bg-slate-50 p-4 rounded border border-slate-100">
-    <h2 class="text-base font-bold text-gray-800 mb-2 flex items-center">
-      <i class="fas fa-user-tie mr-2 text-blue-600"></i> 个人亮点
-    </h2>
-    <div class="text-sm text-gray-700 leading-relaxed text-justify">
-      <ul class="pl-4">
-        <li><strong>全栈交付：</strong>具备从0到1搭建并上线 Web 应用的能力（Next.js 14 + TypeScript + Supabase + Vercel），可独立完成前后端联调、部署与迭代。</li>
-        <li><strong>架构与安全：</strong>熟悉 Serverless/Edge、RLS 行级权限与 JWT 鉴权，能在权限边界清晰的前提下落地核心业务流程。</li>
-        <li><strong>工程化能力：</strong>实践事件驱动（Postgres Outbox）、统一 API 合约、自动化测试与 CI/CD（GitHub Actions + Vercel + Supabase CLI），提升系统可维护性与交付稳定性。</li>
-        <li><strong>业务与产品意识：</strong>能围绕用户旅程拆分模块并快速交付（Booking/Loyalty/Lounge、LBS+推荐、后台RBAC），同时关注体验与性能（索引、分页、缓存）。</li>
-      </ul>
+  <section class="mb-2">
+    <h2 class="section-title">Summary</h2>
+    <div class="text-[11px] text-gray-700 leading-relaxed text-justify bg-slate-50 border border-slate-100 rounded px-2.5 py-1.5">
+      Full-stack developer experienced in Next.js, TypeScript, Supabase and PostgreSQL, with strengths in serverless architecture, authentication, REST APIs, CI/CD and AI-assisted development.
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="mb-1.5">
+    <h2 class="section-title">Skills</h2>
+    <div class="text-[10px] text-gray-700 leading-snug space-y-0.5">
+      <div><strong class="text-gray-900">Languages:</strong> TypeScript, JavaScript, Java | <strong class="text-gray-900">Frontend:</strong> React, Next.js, Tailwind CSS, Ant Design, WeChat Mini Program</div>
+      <div><strong class="text-gray-900">Backend:</strong> Supabase, Node.js, Spring Boot, REST API, Edge Functions | <strong class="text-gray-900">Database:</strong> PostgreSQL, MySQL, Redis, Supabase Auth, RLS</div>
+      <div><strong class="text-gray-900">Cloud &amp; DevOps:</strong> Serverless Architecture, Vercel, GitHub Actions, Supabase CLI, CI/CD, Realtime, Postgres Outbox | <strong class="text-gray-900">AI Tools:</strong> ChatGPT, GitHub Copilot, AI-assisted debugging</div>
     </div>
   </section>
 
   <!-- 工作经历 Work Experience (Timeline) -->
-  <section class="mb-5">
-    <h2 class="section-title">
-      <i class="fas fa-briefcase"></i> 实习经历
-    </h2>
+  <section class="mb-2">
+    <h2 class="section-title">Experience</h2>
 
     <div class="timeline-container">
       <!-- 工作 1 -->
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="flex justify-between items-baseline mb-1">
-          <h3 class="text-lg font-bold text-gray-900">靈澈人工智能有限公司</h3>
-          <span class="text-sm font-semibold text-blue-600 bg-blue-50 px-2 py-0.5 rounded">2025.08 - 至今</span>
+          <h3 class="text-sm font-bold text-gray-900">LINGCHE LIMITED</h3>
+          <span class="text-[11px] font-semibold text-gray-600">2025.08 - 2026.08</span>
         </div>
-        <div class="text-gray-700 font-medium mb-2 italic">全栈开发</div>
-        <div class="text-sm text-gray-600 text-justify">
+        <div class="text-gray-700 font-medium mb-0.5 italic text-[11px]">Full Stack Developer Intern</div>
+        <div class="text-[11px] text-gray-600 text-justify">
           <ul>
-            <li><strong>全栈交付：</strong>围绕 ScoreMystery（Next.js 14 + Supabase）持续迭代核心功能，负责页面开发、接口联调与线上发布回归。</li>
-            <li><strong>接口与数据：</strong>基于 Supabase Edge Functions 与 Postgres（Auth/RLS）实现/维护用户鉴权与数据接口，处理 CORS、错误兜底与日志追踪，保障数据一致性。</li>
-            <li><strong>媒体与性能：</strong>落地媒体上传与处理链路（Storage/构建期处理），配合 Vercel 部署与缓存策略优化首屏与接口响应体验。</li>
+            <li>Delivered product features for ScoreMystery using Next.js 14, TypeScript and Supabase across frontend pages, backend APIs and production deployment.</li>
+            <li>Implemented authentication, Postgres data workflows, media handling and deployment debugging with Supabase Auth, RLS, Edge Functions and Vercel.</li>
           </ul>
         </div>
       </div>
@@ -183,15 +212,14 @@
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="flex justify-between items-baseline mb-1">
-          <h3 class="text-lg font-bold text-gray-900">苏州韵语信息技术有限公司</h3>
-          <span class="text-sm font-semibold text-gray-500">2024.11 - 2025.02</span>
+          <h3 class="text-sm font-bold text-gray-900">YUNYU INFORMATION TECHNOLOGY LIMITED</h3>
+          <span class="text-[11px] font-semibold text-gray-600">2024.11 - 2025.02</span>
         </div>
-        <div class="text-gray-700 font-medium mb-2 italic">全栈开发</div>
-        <div class="text-sm text-gray-600 text-justify">
+        <div class="text-gray-700 font-medium mb-0.5 italic text-[11px]">Full Stack Developer Intern</div>
+        <div class="text-[11px] text-gray-600 text-justify">
           <ul>
-            <li><strong>技术学习：</strong>在真实项目环境中系统学习前后端开发流程与工程规范，熟悉从需求理解→任务拆分→联调回归的完整迭代节奏。</li>
-            <li><strong>实践与验证：</strong>在导师指导下完成页面与接口对接练习（列表/详情/表单），使用 Postman/浏览器调试验证接口行为与边界状态。</li>
-            <li><strong>沉淀总结：</strong>整理学习笔记与接口约定/字段说明，复盘常见问题（权限、参数校验、错误码），为后续独立交付打基础。</li>
+            <li>Supported frontend-backend integration tasks including list, detail and form modules, and validated API behavior with Postman and browser debugging tools.</li>
+            <li>Followed delivery workflows from requirement analysis to integration testing while documenting permission, validation and error-handling cases.</li>
           </ul>
         </div>
       </div>
@@ -199,90 +227,79 @@
   </section>
 
   <!-- 项目经历 Projects (Card Style) -->
-  <section class="mb-5">
-    <h2 class="section-title">
-      <i class="fas fa-project-diagram"></i> 重点项目经历
-    </h2>
+  <section class="mb-2">
+    <h2 class="section-title">Selected Projects</h2>
 
-    <div class="grid grid-cols-1 gap-3">
+    <div class="grid grid-cols-2 gap-1.5">
 
       <!-- 项目 1 -->
       <div class="project-card" style="border-left-color: #10b981;">
         <div class="flex justify-between items-start mb-1">
           <div>
-            <span class="font-bold text-gray-900 block">https://www.scoremystery.com</span>
+            <span class="font-bold text-gray-900 block">ScoreMystery Web Platform</span>
             <div class="mt-1">
-              <span class="tech-tag">Edge Function</span>
-              <span class="tech-tag">SSR</span>
-              <span class="tech-tag">Supabase Auth + Postgres</span>
-              <span class="tech-tag">媒体处理</span>
+              <span class="tech-tag">Next.js 14</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">Supabase</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Edge Functions</span>
               <span class="tech-tag">App Router</span>
               <span class="tech-tag">Vercel</span>
-
-
             </div>
           </div>
-          <span class="text-xs text-gray-500 font-mono">2025.09 - 至今</span>
+          <span class="text-[10px] text-gray-500 font-mono">2025.08 - 2026.03</span>
         </div>
-        <ul class="text-sm text-gray-700 text-justify mt-2">
-          <li><strong>挑战：</strong>从零搭建环境，需要在 Serverless + Edge 架构下实现用户系统与数据接口，并保证在高并发访问下的稳定性与响应速度</li>
-          <li><strong>行动：</strong>学习，设计并实现基于 Next.js + Supabase 的全栈架构，完成用户鉴权、数据接口、媒体处理与前后端解耦，并部署至 Vercel Edge Runtime</li>
-          <li><strong>结果：</strong>网站于2025.11成功开发完成雏形，并成功上线</li>
-          <li><strong>技术架构：</strong>构建了基于 Next.js 14 App Router 的全栈 Web 应用，采用 SSR + Edge Functions + BaaS（Supabase） 架构，实现用户系统、数据接口、媒体处理与高并发访问的生产级部署。</li>
+        <ul class="text-[11px] text-gray-700 text-justify mt-0.5">
+          <li><strong>Tech:</strong> Next.js 14, TypeScript, Supabase, PostgreSQL, Vercel</li>
+          <li><strong>Highlights:</strong> Architected and launched a full-stack web platform with SSR, Supabase Auth, RLS, Edge Functions and media upload workflows on Vercel.</li>
+          <li><strong>Result:</strong> Delivered an MVP with scalable cloud-native architecture and production-ready deployment flow.</li>
         </ul>
       </div>
 
       <!-- 项目 2 -->
-      <div class="project-card" style="border-left-color: #f59e0b;">
+      <div class="project-card" style="border-left-color: #2563eb;">
         <div class="flex justify-between items-start mb-1">
           <div>
-            <span class="font-bold text-gray-900 block">地方特色美食推荐与餐饮点评微信小程序（LBS + 混合推荐）</span>
+            <span class="font-bold text-gray-900 block">Airline Booking, Loyalty and Lounge Platform</span>
             <div class="mt-1">
-              <span class="tech-tag">微信小程序</span>
-              <span class="tech-tag">Spring Boot 3</span>
-              <span class="tech-tag">MySQL</span>
-              <span class="tech-tag">JWT</span>
-              <span class="tech-tag">贝叶斯评分</span>
-              <span class="tech-tag">LBS</span>
+              <span class="tech-tag">Next.js 14</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">Supabase</span>
+              <span class="tech-tag">Postgres</span>
+              <span class="tech-tag">RLS</span>
+              <span class="tech-tag">Realtime</span>
+              <span class="tech-tag">CI/CD</span>
             </div>
           </div>
-          <span class="text-xs text-gray-500 font-mono">2025.12 - 至今</span>
+          <span class="text-[10px] text-gray-500 font-mono">2024.03 - 2025.04</span>
         </div>
-        <ul class="text-sm text-gray-700 text-justify mt-2">
-          <li><strong>项目概述：</strong>构建微信小程序美食推荐与餐饮点评系统，采用前后端分离架构（小程序 + Spring Boot + MySQL），支持地图找店、推荐流与图文点评。</li>
-          <li><strong>LBS与地图：</strong>基于 wx.getLocation 与腾讯地图 API 实现附近店铺可视化、距离排序与一键导航。</li>
-          <li><strong>推荐算法：</strong>在服务层实现贝叶斯平均修正评分，融合距离衰减与标签匹配生成 Top-N 个性化推荐。</li>
-          <li><strong>安全与性能：</strong>使用 JWT 保护点评接口，接入微信内容安全 API，并对关键字段建立索引优化查询。</li>
+        <ul class="text-[11px] text-gray-700 text-justify mt-0.5">
+          <li><strong>Tech:</strong> Next.js 14, TypeScript, Supabase, PostgreSQL, Vercel</li>
+          <li><strong>Highlights:</strong> Built booking, loyalty and lounge workflows with secure APIs, Realtime status sync, Postgres Outbox and event-driven updates.</li>
+          <li><strong>Result:</strong> Delivered an end-to-end serverless platform with cancellation rules and maintainable CI/CD automation.</li>
         </ul>
       </div>
 
       <!-- 项目 3 -->
-      <div class="project-card">
+      <div class="project-card" style="border-left-color: #f59e0b;">
         <div class="flex justify-between items-start mb-1">
           <div>
-            <span class="font-bold text-gray-900 block">航空预定一体化系统开发（Booking+Loyalty+Lounge）</span>
+            <span class="font-bold text-gray-900 block">WeChat Mini Program for Food Recommendation</span>
             <div class="mt-1">
-              <span class="tech-tag">Next.js 14</span>
-              <span class="tech-tag">TypeScript</span>
-              <span class="tech-tag">Tailwind CSS</span>
-              <span class="tech-tag">Ant Design</span>
-              <span class="tech-tag">Supabase Auth</span>
-              <span class="tech-tag">Postgres</span>
-              <span class="tech-tag">RLS</span>
-              <span class="tech-tag">Edge Functions</span>
-              <span class="tech-tag">Realtime</span>
-              <span class="tech-tag">Outbox</span>
-              <span class="tech-tag">CI/CD</span>
-              <span class="tech-tag">Vercel</span>
+              <span class="tech-tag">WeChat Mini Program</span>
+              <span class="tech-tag">Spring Boot 3</span>
+              <span class="tech-tag">MySQL</span>
+              <span class="tech-tag">JWT</span>
+              <span class="tech-tag">LBS</span>
+              <span class="tech-tag">Recommendation</span>
             </div>
           </div>
-          <span class="text-xs text-gray-500 font-mono">2024.03 - 2025.04</span>
+          <span class="text-[10px] text-gray-500 font-mono">2025.12 - 2026.03</span>
         </div>
-        <ul class="text-sm text-gray-700 text-justify mt-2">
-          <li><strong>挑战：</strong>在 Serverless 架构下打通 Booking / Loyalty / Lounge 三模块，兼顾权限安全、跨模块一致性与可扩展性。</li>
-          <li><strong>行动：</strong>基于 Next.js App Router + Supabase（Auth/Postgres/RLS/Edge Functions）实现核心接口；采用 Postgres Outbox + `events-dispatcher` 异步处理积分与等级更新，降低耦合。</li>
-          <li><strong>结果：</strong>完成航班搜索→预订→积分累积/兑换→贵宾室预订闭环，支持取消预订规则与 Realtime 状态同步。</li>
-          <li><strong>工程化：</strong>统一 API 响应格式（`_shared/response.ts`），补齐自动化测试脚本与 CI/CD（GitHub Actions + Vercel + Supabase CLI）。</li>
+        <ul class="text-[11px] text-gray-700 text-justify mt-0.5">
+          <li><strong>Tech:</strong> WeChat Mini Program, Spring Boot 3, MySQL, JWT, Tencent Map API</li>
+          <li><strong>Highlights:</strong> Developed an LBS-based restaurant discovery and review app with map search, nearby ranking and personalized recommendation logic.</li>
+          <li><strong>Result:</strong> Improved recommendation quality and query efficiency through Bayesian scoring, JWT-protected APIs and database indexing.</li>
         </ul>
       </div>
 
@@ -290,7 +307,7 @@
       <div class="project-card" style="border-left-color: #8b5cf6;">
         <div class="flex justify-between items-start mb-1">
           <div>
-            <span class="font-bold text-gray-900 block">基于ruoyi-vue框架开发管理系统</span>
+            <span class="font-bold text-gray-900 block">RuoYi-Vue Admin Management System</span>
             <div class="mt-1">
               <span class="tech-tag">RuoYi-Vue</span>
               <span class="tech-tag">Vue</span>
@@ -302,13 +319,12 @@
               <span class="tech-tag">Redis</span>
             </div>
           </div>
-          <span class="text-xs text-gray-500 font-mono">2023.08 - 2024.01</span>
+          <span class="text-[10px] text-gray-500 font-mono">2023.08 - 2024.01</span>
         </div>
-        <ul class="text-sm text-gray-700 text-justify mt-2">
-          <li><strong>挑战：</strong>在通用后台框架上快速落地多业务模块，同时保证权限边界清晰、接口安全与可维护性。</li>
-          <li><strong>行动：</strong>基于 RuoYi-Vue 搭建管理端，落地 RBAC（用户-角色-菜单/接口）权限模型；结合 JWT 完成登录鉴权与接口访问控制，并按统一 CRUD 规范交付模块（分页、检索、导入导出、审计）。</li>
-          <li><strong>结果：</strong>实现可复用的后台管理能力与多模块快速迭代交付，提升权限配置效率与日常运维可用性。</li>
-          <li><strong>工程化：</strong>对高频查询字段建立索引并引入 Redis 缓存热点数据，优化列表查询与响应速度。</li>
+        <ul class="text-[11px] text-gray-700 text-justify mt-0.5">
+          <li><strong>Tech:</strong> RuoYi-Vue, Vue, Spring Boot, MyBatis, MySQL, Redis</li>
+          <li><strong>Highlights:</strong> Developed reusable admin modules with RBAC, JWT authentication, CRUD workflows, pagination, search and audit support.</li>
+          <li><strong>Result:</strong> Improved delivery efficiency and admin usability through permission controls, indexed queries and Redis caching.</li>
         </ul>
       </div>
 
@@ -317,27 +333,198 @@
 
   <!-- 教育与证书 -->
   <section>
-    <h2 class="section-title">
-      <i class="fas fa-graduation-cap"></i> 教育与证书
-    </h2>
-    <div class="flex justify-between text-sm mb-2 border-b border-dashed border-gray-200 pb-2">
+    <h2 class="section-title">Education</h2>
+    <div class="flex justify-between text-[10px] mb-0.5 border-b border-dashed border-gray-200 pb-0.5">
       <div>
-        <span class="font-bold text-base text-gray-900">澳大利亚卧龙岗大学</span>
+        <span class="font-bold text-[10px] text-gray-900">University of Wollongong (Australia)</span>
         <span class="mx-2 text-gray-400">|</span>
-        <span>信息技术</span>
+        <span>Bachelor of Information Technology</span>
       </div>
-      <div class="font-mono text-gray-600">2024 - 2026</div>
+      <div class="font-mono text-gray-600">2024.03 - 2026.11</div>
     </div>
-    <div class="text-sm text-gray-700">
-      <span class="font-bold mr-2">求职优势：</span>
-      <ul class="pl-4 mt-2">
-        <li><strong>语言能力：</strong>雅思7分，海外求学经历，具备基本的英语沟通，阅读，写作能力。</li>
-        <li><strong>全栈交付：</strong>具备从0到1搭建并上线 Web 应用的能力（Next.js + Supabase + Vercel），可独立完成前后端联调与部署。</li>
-        <li><strong>架构与工程化：</strong>熟悉 Serverless/Edge、事件驱动（Outbox）、RLS 权限模型与 CI/CD 流水线，能把项目做成“可维护、可扩展、可上线”。</li>
-        <li><strong>业务理解：</strong>能围绕用户旅程拆分模块并落地关键规则（预订/取消/积分/权益），输出可验证的结果。</li>
-        <li><strong>协作沟通：</strong>有跨角色协作经验，能用清晰的文档/接口约定推进研发闭环。</li>
-        <li><strong>学习能力：</strong>有自主学习能力，能在不熟悉的技术领域内迅速学习并使用。</li>
-      </ul>
+    <div class="text-[10px] text-gray-700">
+      <span><strong>IELTS 6.5</strong></span>
+      <span class="mx-2 text-gray-300">|</span>
+      <span><strong>Keywords:</strong> Next.js, TypeScript, Supabase, PostgreSQL, REST API, CI/CD, GitHub Actions</span>
+    </div>
+  </section>
+
+</div>
+
+<div class="a4-page">
+
+  <div class="mb-2 pb-2 border-b border-blue-100">
+    <div class="relative min-h-[108px]">
+      <div class="text-center">
+        <h1 class="text-3xl font-bold tracking-tight text-gray-900 mb-0.5">王鹏宇</h1>
+        <div class="text-sm font-semibold text-blue-700 mb-0.5">全栈开发工程师</div>
+        <div class="text-xs tracking-wide text-gray-500 mb-1.5">Next.js / TypeScript / Supabase / 云原生架构</div>
+
+        <div class="text-[11px] text-gray-600 flex justify-center gap-3 items-center flex-wrap">
+          <span>电话: 133-3813-9374</span>
+          <span>邮箱: wangpengyuyz@gmail.com</span>
+          <span>江苏 / 上海</span>
+          <span><a class="text-blue-600 hover:underline" href="https://github.com/PW970" target="_blank" rel="noreferrer">github.com/PW970</a></span>
+        </div>
+      </div>
+      <div class="photo-slot absolute top-0 right-0">
+        <img src="photo.png" alt="王鹏宇证件照">
+      </div>
+    </div>
+  </div>
+
+  <section class="mb-3">
+    <h2 class="section-title">个人简介</h2>
+    <div class="text-[11px] text-gray-700 leading-relaxed text-justify bg-slate-50 border border-slate-100 rounded px-2.5 py-1.5">
+      具备基于 Next.js、TypeScript、Supabase 与 PostgreSQL 搭建云原生 Web 应用的实践经验，熟悉认证鉴权、REST API、数据库设计、Serverless 架构与 CI/CD 交付流程，并能使用 AI 工具提升开发与排错效率。
+    </div>
+  </section>
+
+  <section class="mb-2">
+    <h2 class="section-title">技能概览</h2>
+    <div class="text-[10px] text-gray-700 leading-snug space-y-0.5">
+      <div><strong class="text-gray-900">语言：</strong>TypeScript、JavaScript、Java | <strong class="text-gray-900">前端：</strong>React、Next.js、Tailwind CSS、Ant Design、微信小程序</div>
+      <div><strong class="text-gray-900">后端：</strong>Supabase、Node.js、Spring Boot、REST API、Edge Functions | <strong class="text-gray-900">数据库：</strong>PostgreSQL、MySQL、Redis、RLS</div>
+      <div><strong class="text-gray-900">云与工程化：</strong>Serverless、Vercel、GitHub Actions、Supabase CLI、CI/CD、Realtime、Postgres Outbox | <strong class="text-gray-900">AI 工具：</strong>ChatGPT、GitHub Copilot、AI 辅助调试与文档整理</div>
+    </div>
+  </section>
+
+  <section class="mb-2.5">
+    <h2 class="section-title">实习经历</h2>
+    <div class="timeline-container">
+      <div class="timeline-item">
+        <div class="flex justify-between items-baseline mb-1">
+          <h3 class="text-sm font-bold text-gray-900">靈澈人工智能有限公司</h3>
+          <span class="text-[11px] font-semibold text-gray-600">2025.08 - 2026.08</span>
+        </div>
+        <div class="text-gray-700 font-medium mb-0.5 italic text-[11px]">全栈开发实习生</div>
+        <div class="text-[11px] text-gray-600 text-justify">
+          <ul>
+            <li>围绕 ScoreMystery 持续交付前端页面、后端接口与线上部署功能，技术栈覆盖 Next.js 14、TypeScript 与 Supabase。</li>
+            <li>参与认证鉴权、数据流转、媒体处理与 Vercel 部署调试，推进生产环境稳定上线。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="flex justify-between items-baseline mb-1">
+          <h3 class="text-sm font-bold text-gray-900">苏州韵语信息技术有限公司</h3>
+          <span class="text-[11px] font-semibold text-gray-600">2024.11 - 2025.02</span>
+        </div>
+        <div class="text-gray-700 font-medium mb-0.5 italic text-[11px]">全栈开发实习生</div>
+        <div class="text-[11px] text-gray-600 text-justify">
+          <ul>
+            <li>参与列表、详情、表单等前后端联调任务，使用 Postman 与浏览器调试工具验证接口行为。</li>
+            <li>按需求分析、任务拆分、联调测试的研发流程推进开发，并沉淀权限、校验与错误处理文档。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mb-2.5">
+    <h2 class="section-title">项目经历</h2>
+    <div class="grid grid-cols-2 gap-2">
+      <div class="project-card" style="border-left-color: #10b981;">
+        <div class="flex justify-between items-start mb-1">
+          <div>
+            <span class="font-bold text-gray-900 block">ScoreMystery Web 平台</span>
+            <div class="mt-1">
+              <span class="tech-tag">Next.js 14</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">Supabase</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Vercel</span>
+            </div>
+          </div>
+          <span class="text-[10px] text-gray-500 font-mono">2025.08 - 2026.03</span>
+        </div>
+        <ul class="text-[11px] text-gray-700 text-justify mt-0.5">
+          <li><strong>技术：</strong>Next.js 14、TypeScript、Supabase、PostgreSQL、Vercel</li>
+          <li><strong>亮点：</strong>搭建 SSR 全栈平台，落地 Auth、RLS、Edge Functions 与媒体上传链路。</li>
+          <li><strong>结果：</strong>完成 MVP 上线，具备可扩展的云原生部署能力。</li>
+        </ul>
+      </div>
+
+      <div class="project-card" style="border-left-color: #2563eb;">
+        <div class="flex justify-between items-start mb-1">
+          <div>
+            <span class="font-bold text-gray-900 block">航空预订与会员权益平台</span>
+            <div class="mt-1">
+              <span class="tech-tag">Next.js 14</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">Supabase</span>
+              <span class="tech-tag">RLS</span>
+              <span class="tech-tag">CI/CD</span>
+            </div>
+          </div>
+          <span class="text-[10px] text-gray-500 font-mono">2024.03 - 2025.04</span>
+        </div>
+        <ul class="text-[11px] text-gray-700 text-justify mt-0.5">
+          <li><strong>技术：</strong>Next.js 14、TypeScript、Supabase、PostgreSQL、Vercel</li>
+          <li><strong>亮点：</strong>打通预订、积分、休息室流程，结合 Realtime、Outbox 与事件驱动更新。</li>
+          <li><strong>结果：</strong>完成端到端业务闭环，支持取消规则与自动化交付。</li>
+        </ul>
+      </div>
+
+      <div class="project-card" style="border-left-color: #f59e0b;">
+        <div class="flex justify-between items-start mb-1">
+          <div>
+            <span class="font-bold text-gray-900 block">美食推荐微信小程序</span>
+            <div class="mt-1">
+              <span class="tech-tag">微信小程序</span>
+              <span class="tech-tag">Spring Boot 3</span>
+              <span class="tech-tag">MySQL</span>
+              <span class="tech-tag">LBS</span>
+              <span class="tech-tag">JWT</span>
+            </div>
+          </div>
+          <span class="text-[10px] text-gray-500 font-mono">2025.12 - 2026.03</span>
+        </div>
+        <ul class="text-[11px] text-gray-700 text-justify mt-0.5">
+          <li><strong>技术：</strong>微信小程序、Spring Boot 3、MySQL、JWT、腾讯地图 API</li>
+          <li><strong>亮点：</strong>实现地图找店、附近排序、点评与个性化推荐算法。</li>
+          <li><strong>结果：</strong>通过贝叶斯评分、接口鉴权与索引优化提升推荐质量与查询效率。</li>
+        </ul>
+      </div>
+
+      <div class="project-card" style="border-left-color: #8b5cf6;">
+        <div class="flex justify-between items-start mb-1">
+          <div>
+            <span class="font-bold text-gray-900 block">RuoYi-Vue 后台管理系统</span>
+            <div class="mt-1">
+              <span class="tech-tag">RuoYi-Vue</span>
+              <span class="tech-tag">Vue</span>
+              <span class="tech-tag">Spring Boot</span>
+              <span class="tech-tag">MySQL</span>
+              <span class="tech-tag">Redis</span>
+            </div>
+          </div>
+          <span class="text-[10px] text-gray-500 font-mono">2023.08 - 2024.01</span>
+        </div>
+        <ul class="text-[11px] text-gray-700 text-justify mt-0.5">
+          <li><strong>技术：</strong>RuoYi-Vue、Vue、Spring Boot、MyBatis、MySQL、Redis</li>
+          <li><strong>亮点：</strong>实现 RBAC、JWT 鉴权与标准化 CRUD、分页、检索、审计能力。</li>
+          <li><strong>结果：</strong>提升后台模块复用率、权限管理效率与查询性能。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">教育背景</h2>
+    <div class="flex justify-between text-[11px] mb-1 border-b border-dashed border-gray-200 pb-1">
+      <div>
+        <span class="font-bold text-[11px] text-gray-900">澳大利亚卧龙岗大学</span>
+        <span class="mx-2 text-gray-400">|</span>
+        <span>信息技术本科</span>
+      </div>
+      <div class="font-mono text-gray-600">2024.03 - 2026.11</div>
+    </div>
+    <div class="text-[11px] text-gray-700">
+      <span><strong>英语：</strong>雅思 6.5</span>
+      <span class="mx-2 text-gray-300">|</span>
+      <span><strong>关键词：</strong>Next.js、TypeScript、Supabase、PostgreSQL、REST API、Serverless、CI/CD、GitHub Actions</span>
     </div>
   </section>
 
